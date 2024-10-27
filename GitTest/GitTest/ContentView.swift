@@ -18,7 +18,7 @@ struct ContentView: View {
     let gradient = Gradient(colors: [.blue, .yellow, .orange, .red])
     
     var body: some View {
-        VStack(spacing: 50.0) {
+        VStack(spacing: 30.0) {
             Gauge(value: value, in: minValue...maxValue) {
                 Label("Range", systemImage: "arrow.left.and.right")
             } currentValueLabel: {
@@ -30,9 +30,6 @@ struct ContentView: View {
             }
             .tint(gradient) // Doesn't affect labels
             
-            Gauge(value: value, in: minValue...maxValue) {
-                Text("Range")
-            }
             Gauge(value: value, in: minValue...maxValue) {
                 Text("Color")
             }
@@ -48,7 +45,19 @@ struct ContentView: View {
                 SecureField("Password", text: $username)
                     .textFieldStyle(.roundedBorder)
             }
+            
+            GroupBox {
+                TextField("New Password", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                SecureField("New Password", text: $username)
+                    .textFieldStyle(.roundedBorder)
+            } label: {
+                Text("Reset Password")
+                    .font(.largeTitle.width(.compressed).weight(.heavy))
+                    .frame(maxWidth: .infinity)
+            }
         }
+        .padding()
     }
 }
 
