@@ -31,13 +31,14 @@ struct ContentView: View {
             Gauge(value: value, in: minValue...maxValue) {
                 Text("Range")
             }
-            
             Gauge(value: value, in: minValue...maxValue) {
                 Text("Color")
-                    .gaugeStyle(.accessoryCircular)
-                    .scaleEffect(3)
-                    .frame(height: 220)
             }
+            .gaugeStyle(.accessoryCircular)
+            .scaleEffect(3)
+            .tint(gradient)
+            .frame(height: 220)
+            
         }
     }
 }
