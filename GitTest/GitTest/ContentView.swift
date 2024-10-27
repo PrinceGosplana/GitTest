@@ -13,6 +13,8 @@ struct ContentView: View {
     private let minValue = 0.0
     private let maxValue = 100.0
     
+    @State private var username = ""
+    @State private var password = ""
     let gradient = Gradient(colors: [.blue, .yellow, .orange, .red])
     
     var body: some View {
