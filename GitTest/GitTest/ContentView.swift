@@ -38,12 +38,15 @@ struct ContentView: View {
             .tint(gradient)
             .frame(height: 220)
             
-            GroupBox {
-                Text("Login")
-                TextField("Username", text: $username)
-                    .textFieldStyle(.roundedBorder)
-                SecureField("Password", text: $username)
-                    .textFieldStyle(.roundedBorder)
+            List {
+                Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    .listItemTint(.pink)
+                Label("Archives", systemImage: "archivebox.circle")
+                    .listItemTint(.orange)
+                Label("Document", systemImage: "doc.richtext")
+                    .listItemTint(.red)
+                Label("Camera Settings", systemImage: "camera.badge.ellipsis")
+                    .listItemTint(.monochrome)
             }
             
             GroupBox {
