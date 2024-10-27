@@ -13,6 +13,9 @@ struct ContentView: View {
     private let minValue = 0.0
     private let maxValue = 100.0
     
+    @State private var username = ""
+    @State private var password = ""
+    
     var body: some View {
         VStack(spacing: 50.0) {
             Gauge(value: value) {
