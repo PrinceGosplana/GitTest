@@ -15,21 +15,38 @@ struct ContentView: View {
     
     @State private var username = ""
     @State private var password = ""
+    let gradient = Gradient(colors: [.blue, .yellow, .orange, .red])
     
     var body: some View {
         VStack(spacing: 50.0) {
-            Gauge(value: value) {
-                Text("No Range")
+            Gauge(value: value, in: minValue...maxValue) {
+                Label("Range", systemImage: "arrow.left.and.right")
+            } currentValueLabel: {
+                Text(value, format: .number)
+            } minimumValueLabel: {
+                Text(minValue, format: .number)
+            } maximumValueLabel: {
+                Text(maxValue, format: .number)
             }
+            .tint(gradient) // Doesn't affect labels
+            
             Gauge(value: value, in: minValue...maxValue) {
                 Text("Range")
             }
-            
             Gauge(value: value, in: minValue...maxValue) {
                 Text("Color")
-                    .gaugeStyle(.accessoryCircular)
-                    .scaleEffect(3)
-                    .frame(height: 220)
+            }
+            .gaugeStyle(.accessoryCircular)
+            .scaleEffect(3)
+            .tint(gradient)
+            .frame(height: 220)
+            
+            GroupBox {
+                Text("Login")
+                TextField("Username", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                SecureField("Password", text: $username)
+                    .textFieldStyle(.roundedBorder)
             }
         }
     }
