@@ -41,6 +41,13 @@ struct ContentView: View {
             .tint(gradient)
             .frame(height: 220)
             
+            GroupBox {
+                Text("Login")
+                TextField("Username", text: $username)
+                    .textFieldStyle(.roundedBorder)
+                SecureField("Password", text: $username)
+                    .textFieldStyle(.roundedBorder)
+            }
         }
     }
 }
